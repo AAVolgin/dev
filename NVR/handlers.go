@@ -1,32 +1,29 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
-	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 func ListCameras(c *gin.Context) {
-	var cams []Camera
-	DB.Find(&cams)
-	c.JSON(http.StatusOK, cams)
+	var cameras []Camera
+	DB.Find(&cameras)
+	c.JSON(http.StatusOK, cameras)
 }
 
 func AddCamera(c *gin.Context) {
-	var cam Camera
-	if err := c.ShouldBindJSON(&cam); err != nil {
+	var camera Camera
+	if err := c.ShouldBindJSON(&camera); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	DB.Create(&cam)
-	recordQueue <- &cam
-	c.JSON(http.StatusCreated, cam)
+	DB.Create(&camera)
+	c.JSON(http.StatusOK, camera)
 }
 
 func DeleteCamera(c *gin.Context) {
 	id := c.Param("id")
-	camID, _ := strconv.Atoi(id)
-	DB.Delete(&Camera{}, camID)
-	c.Status(http.StatusNoContent)
+	DB.Delete(&Camera{}, id)
+	c.JSON(http.StatusOK, gin.H{"status": "deleted"})
 }
- 
