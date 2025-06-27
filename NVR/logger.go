@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+
 	"github.com/sirupsen/logrus"
 )
 
@@ -18,4 +19,3 @@ func InitLogger() {
 		FullTimestamp: true,
 	})
 }
- 
