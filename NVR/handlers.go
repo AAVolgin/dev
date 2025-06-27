@@ -29,3 +29,4 @@ func DeleteCamera(c *gin.Context) {
 	DB.Delete(&Camera{}, camID)
 	c.Status(http.StatusNoContent)
 }
+ 

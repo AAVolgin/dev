@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"time"
 )
-
+ 
 var recordQueue = make(chan *Camera, 10)
 
 func StartRecorderManager() {

@@ -20,3 +20,4 @@ func AuthMiddleware() gin.HandlerFunc {
 func validateCredentials(user, pass string) bool {
 	return user == "admin" && pass == "secret"
 }
+ 

@@ -8,7 +8,7 @@ require (
 	gorm.io/driver/sqlite v1.5.7
 	gorm.io/gorm v1.25.7-0.20240204074919-46816ad31dde
 )
-
+ 
 require (
 	github.com/bytedance/sonic v1.11.6 // indirect
 	github.com/bytedance/sonic/loader v0.1.1 // indirect
